@@ -1,17 +1,19 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Tests\Func;
 
 use App\DataFixtures\EventFixtures;
-use App\Entity\Event;
 use Doctrine\ORM\Tools\SchemaTool;
-use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Liip\TestFixturesBundle\Services\DatabaseToolCollection;
 use Liip\TestFixturesBundle\Services\DatabaseTools\AbstractDatabaseTool;
+use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 class EventControllerTest extends WebTestCase
 {
     protected AbstractDatabaseTool $databaseTool;
+
     private static $client;
 
     protected function setUp(): void
@@ -26,7 +28,7 @@ class EventControllerTest extends WebTestCase
         $this->databaseTool = static::getContainer()->get(DatabaseToolCollection::class)->get();
 
         $this->databaseTool->loadFixtures(
-            [EventFixtures::class]
+            [EventFixtures::class],
         );
     }
 
@@ -40,12 +42,11 @@ class EventControllerTest extends WebTestCase
             [],
             [],
             ['CONTENT_TYPE' => 'application/json'],
-            json_encode(['comment' => 'It‘s a test comment !!!!!!!!!!!!!!!!!!!!!!!!!!!'])
+            json_encode(['comment' => 'It‘s a test comment !!!!!!!!!!!!!!!!!!!!!!!!!!!']),
         );
 
         $this->assertResponseStatusCodeSame(204);
     }
-
 
     public function testUpdateShouldReturnHttpNotFoundResponse()
     {
@@ -57,7 +58,7 @@ class EventControllerTest extends WebTestCase
             [],
             [],
             ['CONTENT_TYPE' => 'application/json'],
-            json_encode(['comment' => 'It‘s a test comment !!!!!!!!!!!!!!!!!!!!!!!!!!!'])
+            json_encode(['comment' => 'It‘s a test comment !!!!!!!!!!!!!!!!!!!!!!!!!!!']),
         );
 
         $this->assertResponseStatusCodeSame(404);
@@ -84,12 +85,11 @@ class EventControllerTest extends WebTestCase
             [],
             [],
             ['CONTENT_TYPE' => 'application/json'],
-            $payload
+            $payload,
         );
 
         self::assertResponseStatusCodeSame(400);
         self::assertJsonStringEqualsJsonString($expectedResponse, $client->getResponse()->getContent());
-
     }
 
     public function providePayloadViolations(): iterable
