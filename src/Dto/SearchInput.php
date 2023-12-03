@@ -1,16 +1,14 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Dto;
 
 class SearchInput
 {
-    /**
-     * @var \DateTimeImmutable
-     */
+    /** @var \DateTimeImmutable */
     public $date;
 
-    /**
-     * @var string
-     */
+    /** @var string */
     public $keyword;
 }

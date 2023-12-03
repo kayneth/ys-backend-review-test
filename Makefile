@@ -109,3 +109,21 @@ func-test: var/docker.up ## Run PhpUnit functionnal testsuite
 	@$(call log,Running ...)
 	$(PHP_EXEC) bin/phpunit -v --testsuite func --testdox
 	@$(call log_success,Done)
+
+.PHONY: phpstan
+phpstan: var/docker.build ## Run phpstan
+	@$(call log,Running ...)
+	$(PHP_EXEC)  ./vendor/bin/phpstan analyse
+	@$(call log_success,Done)
+
+.PHONY: lint
+lint: var/docker.build ## Run ECS lint
+	@$(call log,Running ...)
+	$(PHP_EXEC)  vendor/bin/ecs check src tests
+	@$(call log_success,Done)
+
+.PHONY: lint-fix
+lint-fix: var/docker.build ## Run ECS fixer
+	@$(call log,Running ...)
+	$(PHP_EXEC)  vendor/bin/ecs check src tests --fix
+	@$(call log_success,Done)
