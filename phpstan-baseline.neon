@@ -1,0 +1,91 @@
+parameters:
+	ignoreErrors:
+		-
+			message: "#^Parameter \\#1 \\$authorInput of method App\\\\Repository\\\\WriteEventRepository\\:\\:update\\(\\) expects App\\\\Dto\\\\EventInput, mixed given\\.$#"
+			count: 1
+			path: src/Controller/EventController.php
+
+		-
+			message: "#^Call to an undefined method Symfony\\\\Component\\\\Serializer\\\\SerializerInterface\\:\\:denormalize\\(\\)\\.$#"
+			count: 1
+			path: src/Controller/SearchController.php
+
+		-
+			message: "#^Method App\\\\DataFixtures\\\\EventFixtures\\:\\:load\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/DataFixtures/EventFixtures.php
+
+		-
+			message: "#^Method App\\\\Entity\\\\Actor\\:\\:fromArray\\(\\) has parameter \\$data with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Entity/Actor.php
+
+		-
+			message: "#^Method App\\\\Entity\\\\Event\\:\\:__construct\\(\\) has parameter \\$payload with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Entity/Event.php
+
+		-
+			message: "#^Method App\\\\Entity\\\\Event\\:\\:payload\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Entity/Event.php
+
+		-
+			message: "#^Property App\\\\Entity\\\\Event\\:\\:\\$payload type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Entity/Event.php
+
+		-
+			message: "#^Class App\\\\Entity\\\\EventType extends generic class Fresh\\\\DoctrineEnumBundle\\\\DBAL\\\\Types\\\\AbstractEnumType but does not specify its types\\: TValue, TReadable$#"
+			count: 1
+			path: src/Entity/EventType.php
+
+		-
+			message: "#^Method App\\\\Entity\\\\Repo\\:\\:fromArray\\(\\) has parameter \\$data with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Entity/Repo.php
+
+		-
+			message: "#^Call to an undefined method Doctrine\\\\DBAL\\\\Connection\\:\\:fetchAll\\(\\)\\.$#"
+			count: 1
+			path: src/Repository/DbalReadEventRepository.php
+
+		-
+			message: "#^Cannot cast mixed to int\\.$#"
+			count: 1
+			path: src/Repository/DbalReadEventRepository.php
+
+		-
+			message: "#^Method App\\\\Repository\\\\DbalReadEventRepository\\:\\:countByType\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Repository/DbalReadEventRepository.php
+
+		-
+			message: "#^Method App\\\\Repository\\\\DbalReadEventRepository\\:\\:getLatest\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Repository/DbalReadEventRepository.php
+
+		-
+			message: "#^Method App\\\\Repository\\\\DbalReadEventRepository\\:\\:statsByTypePerHour\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Repository/DbalReadEventRepository.php
+
+		-
+			message: "#^Parameter \\#1 \\$json of function json_decode expects string, mixed given\\.$#"
+			count: 1
+			path: src/Repository/DbalReadEventRepository.php
+
+		-
+			message: "#^Method App\\\\Repository\\\\ReadEventRepository\\:\\:countByType\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Repository/ReadEventRepository.php
+
+		-
+			message: "#^Method App\\\\Repository\\\\ReadEventRepository\\:\\:getLatest\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Repository/ReadEventRepository.php
+
+		-
+			message: "#^Method App\\\\Repository\\\\ReadEventRepository\\:\\:statsByTypePerHour\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Repository/ReadEventRepository.php
